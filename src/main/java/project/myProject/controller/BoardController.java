@@ -51,16 +51,25 @@ public class BoardController {
     }
 
     @PostMapping("/board/list/{id}/edit")
-    public String boardEdit(@ModelAttribute Board editedBoard){
-        boardService.writeBoard(editedBoard);
+    public String boardEdit(@ModelAttribute Board board){
+        boardService.writeBoard(board);
         return "redirect:/board/list";
     }
 
 
     // 게시물 삭제
-    @PostMapping("/board/list/{id}")
+    @PostMapping("/board/list/{id}/delete")
     public String boardDelete(@PathVariable Long id){
         boardService.deleteBoard(id);
         return "redirect:/board/list";
     }
+
+
+    // 게시글 댓글 작성
+
+    // 게시글 댓글 삭제
+
+    // 게시글 사진 업로드
+
+    // 게시글 사진 삭제
 }

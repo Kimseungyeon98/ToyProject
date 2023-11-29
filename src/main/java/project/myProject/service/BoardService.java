@@ -20,6 +20,11 @@ public class BoardService {
         boardRepository.save(board);
     }
 
+    // 글 삭제
+    public void deleteBoard(Long boardId) {
+        boardRepository.deleteById(boardId);
+    }
+
     // 전체 조회
     public List<Board> findAllBoard() {
         return boardRepository.findAll();
@@ -28,10 +33,5 @@ public class BoardService {
     // 단건 조회
     public Board findOneBoard(Long boardId) {
         return boardRepository.getOne(boardId);
-    }
-
-    // 글 삭제
-    public void deleteBoard(Long boardId) {
-        boardRepository.deleteById(boardId);
     }
 }

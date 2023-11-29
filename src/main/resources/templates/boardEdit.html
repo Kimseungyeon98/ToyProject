@@ -6,18 +6,25 @@
   <title>게시물 수정</title>
 </head>
 <body>
-<form th:action="@{/board/list/{id}/edit(id=${board.id})}" method="post">
+<form th:action="@{/board/list/{id}/edit(id=${board.id})}" enctype="multipart/form-data" method="post">
 
-  <label for="title">Title:</label>
-  <input type="text" id="title" th:value="${board.title}" name="title" required></input>
+  <label for="title">제목:</label>
+  <input type="text" id="title" name="title" th:value="${board.title}" required>
 
   <br>
 
-  <label for="content">Content:</label>
-  <textarea id="content" th:text="${board.content}" name="content" rows="4" cols="50" required></textarea>
+  <label for="content">내용:</label>
+  <textarea id="content" name="content" th:text="${board.content}" rows="4" cols="50" required></textarea>
+
+  <br>
+
+  <label for="file">첨부 파일:</label>
+  <input type="file" id="file" name="file">
+<!--  th:value="${board.file}"-->
+
+  <br>
 
   <button type="submit">수정</button>
-  <br>
 </form>
 
 </body>

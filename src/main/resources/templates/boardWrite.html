@@ -8,16 +8,19 @@
 <body>
 
 <form action="/board/write" enctype="multipart/form-data" method="post">
+    <!--    제목 입력 칸-->
     <label for="title">제목:</label>
     <input type="text" id="title" name="title" required>
 
     <br>
 
+    <!--    내용 입력 칸-->
     <label for="content">내용:</label>
     <textarea id="content" name="content" rows="4" cols="50" required></textarea>
 
     <br>
 
+    <!--    파일 등록 칸-->
     <label for="file">첨부 파일:</label>
     <input type="file" id="file" name="file">
 

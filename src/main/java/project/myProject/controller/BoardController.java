@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import project.myProject.entity.Board;
 import project.myProject.service.BoardService;
 
@@ -20,8 +21,9 @@ public class BoardController {
     }
 
     @PostMapping("/board/write")
-    public String boardWrite(Board board) {
-        boardService.writeBoard(board);
+    public String boardWrite(Board board, MultipartFile file) throws Exception{
+
+        boardService.writeBoard(board, file);
         return "redirect:/board/list";
     }
 
@@ -51,8 +53,9 @@ public class BoardController {
     }
 
     @PostMapping("/board/list/{id}/edit")
-    public String boardEdit(@ModelAttribute Board board){
-        boardService.writeBoard(board);
+    public String boardEdit(@ModelAttribute Board board, MultipartFile file) throws Exception{
+        boardService.deleteFileBoard(board.getId());
+        boardService.writeBoard(board, file);
         return "redirect:/board/list";
     }
 
@@ -68,8 +71,4 @@ public class BoardController {
     // 게시글 댓글 작성
 
     // 게시글 댓글 삭제
-
-    // 게시글 사진 업로드
-
-    // 게시글 사진 삭제
 }

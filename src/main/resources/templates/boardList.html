@@ -24,7 +24,7 @@
       <a th:href="@{/board/list/{id}(id=${board.id})}" th:text="${board.title}"></a>
     </td>
     <td th:text="${board.content}"></td>
-<!--    <td th:test="${board.file}"></td>-->
+    <td th:text="${board.fileName}!=null ? 'O' : 'X'"></td>
   </tr>
   </tbody>
 </table>

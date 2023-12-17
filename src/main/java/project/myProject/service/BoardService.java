@@ -17,7 +17,7 @@ public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
-    // 글 쓰기
+    // 글 작성
     public void writeBoard(Board board, MultipartFile file) throws Exception{
         // 파일 첨부 로직
         if(!file.isEmpty()) {

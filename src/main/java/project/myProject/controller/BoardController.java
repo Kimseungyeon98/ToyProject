@@ -6,13 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import project.myProject.entity.Board;
+import project.myProject.entity.Reply;
 import project.myProject.service.BoardService;
+import project.myProject.service.ReplyService;
 
 @Controller
 public class BoardController {
 
     @Autowired
     private BoardService boardService;
+
+    @Autowired
+    private ReplyService replyService;
 
     // 게시물 작성
     @GetMapping("/board/write")
@@ -22,7 +27,6 @@ public class BoardController {
 
     @PostMapping("/board/write")
     public String boardWrite(Board board, MultipartFile file) throws Exception{
-
         boardService.writeBoard(board, file);
         return "redirect:/board/list";
     }

@@ -67,6 +67,9 @@
 <div>
   <h3>댓글 작성</h3>
   <form action="/board/reply" enctype="multipart/form-data" method="post">
+    <!--    게시글 id-->
+    <input type="hidden" id="board" name="board" th:value="${board.id}"/>
+
     <!--    댓글 작성자 칸-->
     <label for="writer">작성자:</label>
     <input type="text" id="writer" name="writer" required>

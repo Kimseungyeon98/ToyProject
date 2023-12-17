@@ -42,8 +42,8 @@ public class BoardController {
     // 게시물 상세조회
     @GetMapping("/board/list/{id}")
     public String boardDetailForm(@PathVariable Long id, Model model) {
-        Board board = boardService.findOneBoard(id);
-        model.addAttribute("board",board);
+        model.addAttribute("board",boardService.findOneBoard(id));
+        model.addAttribute("replies",replyService.findReply(id));
         return "boardDetail";
     }
 
@@ -51,8 +51,7 @@ public class BoardController {
     // 게시물 수정
     @GetMapping("/board/list/{id}/edit")
     public String boardEditForm(@PathVariable Long id, Model model){
-        Board board = boardService.findOneBoard(id);
-        model.addAttribute("board", board);
+        model.addAttribute("board", boardService.findOneBoard(id));
         return "boardEdit";
     }
 
@@ -73,6 +72,12 @@ public class BoardController {
 
 
     // 게시글 댓글 작성
+    @PostMapping("/board/reply")
+    public String replyWrite(Reply reply) {
+        replyService.writeReply(reply);
+        return "redirect:/board/list/"+reply.getBoard().getId();
+    }
+
 
     // 게시글 댓글 삭제
 }

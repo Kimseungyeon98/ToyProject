@@ -16,6 +16,10 @@ public class ReplyService {
     @Autowired
     private ReplyRepository replyRepository;
 
+    @Autowired
+    private BoardRepository boardRepository;
+
+
     // 댓글 작성
     public void writeReply(Reply reply){
         replyRepository.save(reply);
@@ -26,14 +30,9 @@ public class ReplyService {
         replyRepository.deleteById(replyId);
     }
 
-    // 댓글 전체 조회
-//    public List<Reply> findAllReply(){
-//        return replyRepository.findAll();
-//    }
-
     // 특정 게시글의 댓글 조회
-//    public List<Reply> findReply(Reply reply){
-//
-//        return replyRepository.findAllById();
-//    }
+    public List<Reply> findReply(Long boardId) {
+        Board board = boardRepository.getOne(boardId);
+        return board.getReplies();
+    }
 }

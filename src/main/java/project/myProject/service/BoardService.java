@@ -68,4 +68,5 @@ public class BoardService {
     public Board findOneBoard(Long boardId) {
         return boardRepository.getOne(boardId);
     }
+
 }

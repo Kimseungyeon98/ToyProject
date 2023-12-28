@@ -58,7 +58,7 @@ public class BoardController {
     @PostMapping("/board/list/{id}/edit")
     public String boardEdit(@ModelAttribute Board board, MultipartFile file) throws Exception{
         boardService.deleteFileBoard(board.getId());
-        boardService.writeBoard(board, file);
+        boardService.updateBoard(board, file);
         return "redirect:/board/list";
     }
 

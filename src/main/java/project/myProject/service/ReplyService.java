@@ -32,7 +32,7 @@ public class ReplyService {
 
     // 특정 게시글의 댓글 조회
     public List<Reply> findReply(Long boardId) {
-        Board board = boardRepository.getOne(boardId);
+        Board board = boardRepository.findById(boardId);
         return board.getReplies();
     }
 }

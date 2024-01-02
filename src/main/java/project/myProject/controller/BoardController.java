@@ -30,7 +30,6 @@ public class BoardController {
     }
 
     @PostMapping("/board/write")
-//    public String boardWrite(Board board, MultipartFile file) throws Exception{
     public String boardWrite(BoardDTO boardDTO, MultipartFile file) throws Exception{
         Board board = boardDTO.toEntity();
         boardService.writeBoard(board, file);
@@ -63,7 +62,8 @@ public class BoardController {
     }
 
     @PostMapping("/board/list/{id}/edit")
-    public String boardEdit(@ModelAttribute Board board, MultipartFile file) throws Exception{
+    public String boardEdit(@ModelAttribute BoardDTO boardDTO, MultipartFile file) throws Exception{
+        Board board = boardDTO.toEntity();
         boardService.deleteFileBoard(board.getId());
         boardService.updateBoard(board, file);
         return "redirect:/board/list";
@@ -77,19 +77,4 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
-
-    // 게시글 댓글 작성
-    @PostMapping("/board/reply")
-//    public String replyWrite(Reply reply) {
-    public String replyWrite(ReplyDTO replyDTO) {
-
-        Board board = boardService.findOneBoard(replyDTO.getBoard());
-        Reply reply = replyDTO.toEntity(board);
-
-        replyService.writeReply(reply);
-        return "redirect:/board/list/" + replyDTO.getBoard();
-    }
-
-
-    // 게시글 댓글 삭제
 }

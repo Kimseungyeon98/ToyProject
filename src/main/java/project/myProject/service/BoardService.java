@@ -23,65 +23,39 @@ public class BoardService {
 //    public BoardService(BoardInterface boardInterface) {
 //        this.boardInterface = boardInterface;
 //    }
+    public Board fileUpload(Board board, MultipartFile file) throws Exception {
+        // 파일 첨부 로직
+        if(!file.isEmpty()) {
+            // 1. 프로젝트 경로 + 저장할 경로를 지정
+            String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
 
+            // 2. 식별자 랜덤으로 생성
+            UUID uuid = UUID.randomUUID();
+
+            // 3. '랜덤식별자_원래파일이름' 으로 저장될 파일 이름 지정
+            String fileName = uuid + "_" + file.getOriginalFilename();
+
+
+            // 4. 빈 껍데기 생성
+            File saveFile = new File(filePath, fileName);
+
+            file.transferTo(saveFile);
+
+            // 디비에 파일내용 등록
+            board.setFileName(fileName);
+            board.setFilePath("/files/" + fileName);
+        }
+        return board;
+    }
 
     // 글 작성
     public void writeBoard(Board board, MultipartFile file) throws Exception{
-        // 파일 첨부 로직
-        if(!file.isEmpty()) {
-            // 1. 프로젝트 경로 + 저장할 경로를 지정
-            String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-            // 2. 식별자 랜덤으로 생성
-            UUID uuid = UUID.randomUUID();
-
-            // 3. '랜덤식별자_원래파일이름' 으로 저장될 파일 이름 지정
-            String fileName = uuid + "_" + file.getOriginalFilename();
-
-
-            // 4. 빈 껍데기 생성
-            File saveFile = new File(filePath, fileName);
-
-            file.transferTo(saveFile);
-
-            // 디비에 파일내용 등록
-            board.setFileName(fileName);
-            board.setFilePath("/files/" + fileName);
-            System.out.println(board.getFilePath());
-        }
-
-        // 글 저장 로직
-        boardInterface.save(board);
+        boardInterface.save(fileUpload(board, file));
     }
     // 글 수정
     public void updateBoard(Board board, MultipartFile file) throws Exception{
-        // 파일 첨부 로직
-        if(!file.isEmpty()) {
-            // 1. 프로젝트 경로 + 저장할 경로를 지정
-            String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-            // 2. 식별자 랜덤으로 생성
-            UUID uuid = UUID.randomUUID();
-
-            // 3. '랜덤식별자_원래파일이름' 으로 저장될 파일 이름 지정
-            String fileName = uuid + "_" + file.getOriginalFilename();
-
-
-            // 4. 빈 껍데기 생성
-            File saveFile = new File(filePath, fileName);
-
-            file.transferTo(saveFile);
-
-            // 디비에 파일내용 등록
-            board.setFileName(fileName);
-            board.setFilePath("/files/" + fileName);
-            System.out.println(board.getFilePath());
-        }
-        // 글 수정 로직
-        boardInterface.update(board);
+        boardInterface.update(fileUpload(board, file));
     }
-
-
 
     // 글 삭제 시 저장된 파일 삭제
     public void deleteFileBoard(Long boardId) {

@@ -5,8 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import project.myProject.entity.Board;
-import project.myProject.repository.BoardRepository;
-import project.myProject.repository.MemoryBoardRepository;
+import project.myProject.repository.BoardInterface;
 
 import java.io.File;
 import java.util.List;
@@ -15,14 +14,15 @@ import java.util.UUID;
 @Service
 @Transactional
 public class BoardService {
-//    @Autowired
-//    private BoardRepository boardRepository;
 
-    private final BoardRepository boardRepository;
+    @Autowired
+    private BoardInterface boardInterface;
 
-    public BoardService(BoardRepository boardRepository) {
-        this.boardRepository = boardRepository;
-    }
+//    private final BoardInterface boardInterface;
+//
+//    public BoardService(BoardInterface boardInterface) {
+//        this.boardInterface = boardInterface;
+//    }
 
 
     // 글 작성
@@ -51,7 +51,7 @@ public class BoardService {
         }
 
         // 글 저장 로직
-        boardRepository.save(board);
+        boardInterface.save(board);
     }
     // 글 수정
     public void updateBoard(Board board, MultipartFile file) throws Exception{
@@ -78,7 +78,7 @@ public class BoardService {
             System.out.println(board.getFilePath());
         }
         // 글 수정 로직
-        boardRepository.update(board);
+        boardInterface.update(board);
     }
 
 
@@ -86,24 +86,24 @@ public class BoardService {
     // 글 삭제 시 저장된 파일 삭제
     public void deleteFileBoard(Long boardId) {
         String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-        File file = new File(filePath+"\\"+boardRepository.findById(boardId).getFileName());
+        File file = new File(filePath+"\\"+ boardInterface.findById(boardId).getFileName());
         file.delete();
     }
 
     // 글 삭제
     public void deleteBoard(Long boardId) {
         deleteFileBoard(boardId);
-        boardRepository.deleteById(boardId);
+        boardInterface.deleteById(boardId);
     }
 
     // 전체 조회
     public List<Board> findAllBoard() {
-        return boardRepository.findAll();
+        return boardInterface.findAll();
     }
 
     // 단건 조회
     public Board findOneBoard(Long boardId) {
-        return boardRepository.findById(boardId);
+        return boardInterface.findById(boardId);
     }
 
 }

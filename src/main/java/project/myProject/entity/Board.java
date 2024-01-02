@@ -1,14 +1,15 @@
 package project.myProject.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class Board {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="board_id")
@@ -20,6 +21,15 @@ public class Board {
     private String fileName;
     private String filePath;
 
-    @OneToMany(mappedBy = "board")
+    @OneToMany(mappedBy="board")
     private List<Reply> replies = new ArrayList<>();
+
+    @Builder
+    public Board(String title, String content, String fileName, String filePath, List<Reply> replies) {
+        this.title = title;
+        this.content = content;
+        this.fileName = fileName;
+        this.filePath = filePath;
+        this.replies = replies;
+    }
 }

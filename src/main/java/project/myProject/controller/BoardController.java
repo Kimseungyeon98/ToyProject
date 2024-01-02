@@ -6,9 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import project.myProject.entity.Board;
+import project.myProject.entity.BoardDTO;
 import project.myProject.entity.Reply;
+import project.myProject.entity.ReplyDTO;
 import project.myProject.service.BoardService;
 import project.myProject.service.ReplyService;
+
+import java.util.List;
 
 @Controller
 public class BoardController {
@@ -26,7 +30,9 @@ public class BoardController {
     }
 
     @PostMapping("/board/write")
-    public String boardWrite(Board board, MultipartFile file) throws Exception{
+//    public String boardWrite(Board board, MultipartFile file) throws Exception{
+    public String boardWrite(BoardDTO boardDTO, MultipartFile file) throws Exception{
+        Board board = boardDTO.toEntity();
         boardService.writeBoard(board, file);
         return "redirect:/board/list";
     }
@@ -35,7 +41,8 @@ public class BoardController {
     // 게시물 리스트
     @GetMapping("/board/list")
     public String boardListForm(Model model){
-        model.addAttribute("boards",boardService.findAllBoard());
+        List<Board> boards = boardService.findAllBoard();
+        model.addAttribute("boards",boards);
         return "boardList";
     }
 
@@ -73,9 +80,14 @@ public class BoardController {
 
     // 게시글 댓글 작성
     @PostMapping("/board/reply")
-    public String replyWrite(Reply reply) {
+//    public String replyWrite(Reply reply) {
+    public String replyWrite(ReplyDTO replyDTO) {
+
+        Board board = boardService.findOneBoard(replyDTO.getBoard());
+        Reply reply = replyDTO.toEntity(board);
+
         replyService.writeReply(reply);
-        return "redirect:/board/list/"+reply.getBoard().getId();
+        return "redirect:/board/list/" + replyDTO.getBoard();
     }
 
 

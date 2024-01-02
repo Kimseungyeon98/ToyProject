@@ -1,12 +1,10 @@
 package project.myProject.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Getter @Setter
 @NoArgsConstructor
 public class Reply {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

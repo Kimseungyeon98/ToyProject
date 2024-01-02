@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 public class Board {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -14,12 +14,12 @@ public class Member {
     @Column(name="member_id")
     private Long id;
 
-    private String loginId;
+    private String logInId;
     private String password;
 
     @Builder
-    public Member(String loginId, String password) {
-        this.loginId = loginId;
+    public Member(String logInId, String password) {
+        this.logInId = logInId;
         this.password = password;
     }
 }

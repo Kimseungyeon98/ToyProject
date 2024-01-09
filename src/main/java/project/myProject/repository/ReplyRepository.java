@@ -22,12 +22,12 @@ public class ReplyRepository implements ReplyInterface{
     }
 
     @Override
-    public void deleteById(Long replyId) {
+    public void deleteReplyById(Long replyId) {
         em.createQuery("delete from Reply r where r.id=:id").setParameter("id",replyId).executeUpdate();
     }
 
     @Override
-    public Reply findById(Long replyId) {
+    public Reply findReplyById(Long replyId) {
         return em.createQuery("select r from Reply r where r.id=:id",Reply.class).setParameter("id",replyId).getSingleResult();
     }
 }

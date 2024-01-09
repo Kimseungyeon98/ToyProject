@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+
+  <body class="text-center">
+    <form action="/signUp" enctype="application/x-www-form-urlencoded" method="post">
+      <!--    아이디 입력 칸-->
+      <label for="loginId">아이디:</label>
+      <input type="text" class="input-form-control" id="loginId" name="title" required>
+      <br>
+      <!--비밀번호 입력 칸-->
+      <label for="password">비밀번호:</label>
+      <input type="password" class="input-form-control" id="password" name="password" th:filed="*{password}" required>
+      <br>
+      <!--비밀번호 확인 칸-->
+      <label for="passwordCheck">비밀번호:</label>
+      <input type="password" class="input-form-control" id="passwordCheck" name="passwordCheck" th:filed="*{passwordCheck}" required>
+      <br>
+
+      <button type="submit" class="btn btn-outline-primary" onclick="checkPasswords()">회원가입</button>
+    </form>
+
+    <script th:inline="javascript">
+            function checkPasswords() {
+                var password = document.getElementById('password').value;
+                var passwordCheck = document.getElementById('passwordCheck').value;
+
+                if (password === passwordCheck) {
+                    document.querySelector('form').submit();
+                } else {
+                    alert('비밀번호를 다시 확인해주세요.');
+                }
+            }
+     </script>
+  </body>
+</html>

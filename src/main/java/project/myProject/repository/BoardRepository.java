@@ -31,20 +31,24 @@ public class BoardRepository implements BoardInterface {
     }
 
     @Override
-    public void deleteById(Long boardId) {
-        em.createQuery("delete from Board b where b.id=:id").setParameter("id",boardId).executeUpdate();
+    public void deleteBoardById(Long boardId) {
+        em.createQuery("delete from Board b where b.id=:id")
+                .setParameter("id",boardId)
+                .executeUpdate();
     }
 
     @Override
-    public Board findById(Long boardId) {
+    public Board findBoardById(Long boardId) {
 //        return em.find(Board.class,boardId);
-        return em.createQuery("select b from Board b where b.id=:id", Board.class).setParameter("id",boardId).getSingleResult();
+        return em.createQuery("select b from Board b where b.id=:id", Board.class)
+                .setParameter("id",boardId)
+                .getSingleResult();
 //        return em.createQuery("select m from Board b where b.id=:id",Board.class).setParameter("id",boardId).getResultList().stream().findAny();
     }
 
     @Override
-    public List<Board> findAll() {
-        return em.createQuery("select m from Board m", Board.class)
+    public List<Board> findAllBoard() {
+        return em.createQuery("select b from Board b", Board.class)
                 .getResultList();
     }
 }

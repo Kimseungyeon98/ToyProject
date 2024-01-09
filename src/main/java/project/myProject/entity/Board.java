@@ -24,7 +24,8 @@ public class Board {
     private List<Reply> replies = new ArrayList<>();
 
     @Builder
-    public Board(String title, String content, String fileName, String filePath, List<Reply> replies) {
+    public Board(Long id, String title, String content, String fileName, String filePath, List<Reply> replies) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.fileName = fileName;

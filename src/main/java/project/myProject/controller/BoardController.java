@@ -49,7 +49,7 @@ public class BoardController {
     @GetMapping("/board/list/{id}")
     public String boardDetailForm(@PathVariable Long id, Model model) {
         model.addAttribute("board",boardService.findOneBoard(id));
-        model.addAttribute("replies",replyService.findReply(id));
+        model.addAttribute("replies",replyService.findRepliesById(id));
         return "boardDetail";
     }
 

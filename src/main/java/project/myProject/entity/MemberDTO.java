@@ -6,12 +6,12 @@ import lombok.Setter;
 @Getter @Setter
 public class MemberDTO {
     private Long id;
-    private String loginId;
+    private String logInId;
     private String password;
 
     public Member toEntity() {
         return Member.builder()
-                .loginId(this.loginId)
+                .logInId(this.logInId)
                 .password(this.password)
                 .build();
     }

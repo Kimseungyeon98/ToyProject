@@ -28,12 +28,12 @@ public class ReplyService {
 
     // 댓글 삭제
     public void deleteReply(Long replyId){
-        replyInterface.deleteById(replyId);
+        replyInterface.deleteReplyById(replyId);
     }
 
     // 특정 게시글의 댓글 조회
-    public List<Reply> findReply(Long boardId) {
-        Board board = boardInterface.findById(boardId);
+    public List<Reply> findRepliesById(Long boardId) {
+        Board board = boardInterface.findBoardById(boardId);
         return board.getReplies();
     }
 }

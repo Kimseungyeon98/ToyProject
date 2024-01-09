@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface ReplyInterface {
     void save(Reply reply);
-    void deleteById(Long replyId);
-    Reply findById(Long replyId);
+    void deleteReplyById(Long replyId);
+    Reply findReplyById(Long replyId);
 
 }

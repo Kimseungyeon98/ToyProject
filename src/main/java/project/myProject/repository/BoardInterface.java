@@ -12,8 +12,8 @@ import java.util.List;
 public interface BoardInterface {
     void save(Board board);
     void update(Board board);
-    void deleteById(Long boardId);
-    Board findById(Long boardId);
-    List<Board> findAll();
+    void deleteBoardById(Long boardId);
+    Board findBoardById(Long boardId);
+    List<Board> findAllBoard();
 
 }

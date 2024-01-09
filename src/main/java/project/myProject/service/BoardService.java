@@ -60,24 +60,24 @@ public class BoardService {
     // 글 삭제 시 저장된 파일 삭제
     public void deleteFileBoard(Long boardId) {
         String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-        File file = new File(filePath+"\\"+ boardInterface.findById(boardId).getFileName());
+        File file = new File(filePath+"\\"+ boardInterface.findBoardById(boardId).getFileName());
         file.delete();
     }
 
     // 글 삭제
     public void deleteBoard(Long boardId) {
         deleteFileBoard(boardId);
-        boardInterface.deleteById(boardId);
+        boardInterface.deleteBoardById(boardId);
     }
 
     // 전체 조회
     public List<Board> findAllBoard() {
-        return boardInterface.findAll();
+        return boardInterface.findAllBoard();
     }
 
     // 단건 조회
     public Board findOneBoard(Long boardId) {
-        return boardInterface.findById(boardId);
+        return boardInterface.findBoardById(boardId);
     }
 
 }

@@ -17,6 +17,7 @@ public class BoardDTO {
 
     public Board toEntity() {
         return Board.builder()
+                .id(this.id)
                 .title(this.title)
                 .content(this.content)
                 .fileName(this.fileName)

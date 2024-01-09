@@ -1,9 +1,6 @@
-package project.myProject.repository;
+package project.SpringBoot_JDBC.repository;
 
-import org.springframework.stereotype.Repository;
-import project.myProject.entity.Reply;
-
-import java.util.List;
+import project.SpringBoot_JDBC.entity.Reply;
 
 //@Repository
 //public interface ReplyRepository extends JpaRepository<Reply, Long> {

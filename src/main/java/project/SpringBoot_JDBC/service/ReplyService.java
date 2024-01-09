@@ -1,12 +1,12 @@
-package project.myProject.service;
+package project.SpringBoot_JDBC.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.myProject.entity.Board;
-import project.myProject.entity.Reply;
-import project.myProject.repository.BoardInterface;
-import project.myProject.repository.ReplyInterface;
+import project.SpringBoot_JDBC.entity.Board;
+import project.SpringBoot_JDBC.entity.Reply;
+import project.SpringBoot_JDBC.repository.BoardInterface;
+import project.SpringBoot_JDBC.repository.ReplyInterface;
 
 import java.util.List;
 

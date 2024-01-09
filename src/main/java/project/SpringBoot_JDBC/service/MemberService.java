@@ -1,9 +1,9 @@
-package project.myProject.service;
+package project.SpringBoot_JDBC.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.myProject.repository.MemberInterface;
+import project.SpringBoot_JDBC.repository.MemberInterface;
 
 @Service
 @Transactional

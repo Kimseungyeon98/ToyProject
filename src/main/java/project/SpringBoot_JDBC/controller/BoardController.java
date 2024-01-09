@@ -1,16 +1,14 @@
-package project.myProject.controller;
+package project.SpringBoot_JDBC.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import project.myProject.entity.Board;
-import project.myProject.entity.BoardDTO;
-import project.myProject.entity.Reply;
-import project.myProject.entity.ReplyDTO;
-import project.myProject.service.BoardService;
-import project.myProject.service.ReplyService;
+import project.SpringBoot_JDBC.entity.Board;
+import project.SpringBoot_JDBC.entity.BoardDTO;
+import project.SpringBoot_JDBC.service.BoardService;
+import project.SpringBoot_JDBC.service.ReplyService;
 
 import java.util.List;
 

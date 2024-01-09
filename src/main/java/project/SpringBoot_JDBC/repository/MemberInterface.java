@@ -1,6 +1,6 @@
-package project.myProject.repository;
+package project.SpringBoot_JDBC.repository;
 
-import project.myProject.entity.Member;
+import project.SpringBoot_JDBC.entity.Member;
 
 import java.util.List;
 

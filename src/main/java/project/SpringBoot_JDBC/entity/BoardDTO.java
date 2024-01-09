@@ -1,4 +1,4 @@
-package project.myProject.entity;
+package project.SpringBoot_JDBC.entity;
 
 import lombok.Getter;
 import lombok.Setter;

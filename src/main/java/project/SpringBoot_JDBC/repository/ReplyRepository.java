@@ -1,11 +1,9 @@
-package project.myProject.repository;
+package project.SpringBoot_JDBC.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Repository;
-import project.myProject.entity.Reply;
-
-import java.util.List;
+import project.SpringBoot_JDBC.entity.Reply;
 
 @Repository
 public class ReplyRepository implements ReplyInterface{

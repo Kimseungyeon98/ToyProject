@@ -4,7 +4,7 @@
 
 <h2>Back</h2>
 <p>Java/SpringBoot</p>
-<p>JDBC</p>
+<p>JPA</p>
 
 <h2>DB</h2>
 <p>MySQL</p>

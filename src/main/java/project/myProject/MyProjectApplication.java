@@ -1,4 +1,4 @@
-package project.SpringBoot_JDBC;
+package project.myProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

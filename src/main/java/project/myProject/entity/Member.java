@@ -1,4 +1,4 @@
-package project.SpringBoot_JDBC.entity;
+package project.myProject.entity;
 
 import jakarta.persistence.*;
 import lombok.Builder;

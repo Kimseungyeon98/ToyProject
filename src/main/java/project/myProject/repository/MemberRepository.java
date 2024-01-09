@@ -1,8 +1,8 @@
-package project.SpringBoot_JDBC.repository;
+package project.myProject.repository;
 
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
-import project.SpringBoot_JDBC.entity.Member;
+import project.myProject.entity.Member;
 
 import java.util.List;
 

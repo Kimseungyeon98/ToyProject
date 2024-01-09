@@ -1,13 +1,13 @@
-package project.SpringBoot_JDBC.controller;
+package project.myProject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import project.SpringBoot_JDBC.entity.Board;
-import project.SpringBoot_JDBC.entity.Reply;
-import project.SpringBoot_JDBC.entity.ReplyDTO;
-import project.SpringBoot_JDBC.service.BoardService;
-import project.SpringBoot_JDBC.service.ReplyService;
+import project.myProject.entity.Board;
+import project.myProject.entity.Reply;
+import project.myProject.entity.ReplyDTO;
+import project.myProject.service.BoardService;
+import project.myProject.service.ReplyService;
 
 @Controller
 public class ReplyController {

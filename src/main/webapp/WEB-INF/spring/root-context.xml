@@ -19,7 +19,7 @@
 		 <property name="url"
 		 	value="jdbc:mysql://127.0.0.1:3306/testdb?useUnicode=true&amp;ampuseJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"></property>
 		 <property name="username" value="root"></property>
-		 <property name="password" value="asdf3002@@"></property>
+		 <property name="password" value=""></property>
 		 </bean>
 		 
 		 <!-- SqlSessionFactory -->

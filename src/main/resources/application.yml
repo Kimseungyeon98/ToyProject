@@ -11,7 +11,7 @@ spring:
     url: jdbc:mysql://localhost:3306/mydb?serverTimeZone=UTC&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: asdf3002@@
+    password:
 
   jpa:
     hibernate:

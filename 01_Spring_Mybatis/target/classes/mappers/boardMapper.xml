@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test_spring.mappers.board">
+
+	<!-- 게시물 목록 -->
+	<select id="list" resultType="com.board.domain.BoardVO">
+		select
+			no, id, name, goal, date, time
+		from i_can_do_it
+	</select>
+	<!-- 게시물 등록 -->
+	<insert id="create">
+		insert into i_can_do_it (id,name,goal,date,time)
+		values (#{id}, #{name}, #{goal}, NOW(), NOW())
+	</insert>
+	
+	<!-- 게시글 상세정보 -->
+	<select id="detail" resultType="com.board.domain.BoardVO">
+		select no,id,name,goal,date,time
+		from i_can_do_it where no=#{no}
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="update">
+		update i_can_do_it
+		set name=#{name}, goal=#{goal}, id=#{id}, time=NOW(), date=NOW()
+		where no=#{no}
+	</update>
+	
+	<!-- 회원 삭제 -->
+	<delete id="delete">
+		delete from i_can_do_it
+		where no=#{no}
+	</delete>
+	
+</mapper>

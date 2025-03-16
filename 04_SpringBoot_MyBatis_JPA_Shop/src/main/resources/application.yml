@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: user01
+    password: 1234
+    driver-class-name: oracle.jdbc.OracleDriver
+  mvc:
+    view: #view 경로 및 확장자 지정
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+mybatis:
+  type-aliases-package: ksy.shop.**.vo
+  mapper-locations: ksy/shop/**/dao/*.xml
